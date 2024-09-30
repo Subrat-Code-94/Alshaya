@@ -1,0 +1,58 @@
+.payment-method-card {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.payment-method-radio {
+    height: 20px;
+    width: 20px;
+    border: 1px solid var(--color-success-100);
+    margin: 0 0.25rem 0 0;
+}
+
+.payment-method-card input[type='radio'] {
+    height: 2.275rem;
+    width: 2.5rem;
+}
+
+.payment-method-card input[type='radio']:checked::before {
+    content: '';
+    position: absolute;
+    width: var(--space-space-3x);
+    height: var(--space-space-3x);
+    background-color: var(--color-success-100);
+    border: 1px solid var(--color-success-100);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.payment-method-card input[type='radio']:checked {
+    border-color: var(--color-success-100);
+    position: relative;
+    appearance: none;
+    border-radius: 100%;
+}
+
+.payment-method {
+    align-items: center;
+    display: flex;
+    gap: var(--space-space-8);
+    margin-bottom: var(--space-space-8);
+    background-color: var(--color-neutral-50);
+    min-height: var(--space-space-68);
+    padding: var(--space-space-3x) var(--space-space-4x);
+    cursor: pointer;
+}
+
+.radio-sim > div, .radio-sim > div > p {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.radio-sim, .payment-method-top-panel, .payment-method-card {
+    width: 100%;
+}

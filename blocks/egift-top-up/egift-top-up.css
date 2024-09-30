@@ -1,0 +1,156 @@
+@import url("../../styles/forms.css");
+
+.egift-top-up-title h1 {
+    font: var(--type-details-semibold-6-font);
+    text-align: center;
+    margin-bottom: unset;
+}
+
+main .egift-top-up-container {
+    border-top: var(--shape-border-width-1) solid var(--color-footer-border);
+    padding: 1.2rem;
+
+    h3, h4 {
+        font: var(--type-details-semibold-6-font);
+    }
+
+    p {
+        margin: unset;
+        padding: 1.2rem;
+        border: var(--shape-border-width-1) solid var(--color-footer-border);
+    }
+}
+
+.egift-top-up-container .egift-top-up-amount-options {
+    display: flex;
+    gap: 1.2rem;
+    align-self: stretch;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    input[type="radio"] {
+        appearance: none;
+        max-width: 6.5rem;
+        height: 3.4rem;
+        border: .1rem solid black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.8rem 1.2rem;
+        margin: unset;
+        cursor: pointer;
+        content: attr(value);
+        font-size: var(--font-size-3);
+    }
+
+    input[id="customAmount"] {
+        max-width: unset;
+    }
+
+    input[type="radio"]::before {
+        content: attr(value);
+    }
+
+    input[type="radio"]:checked {
+        background-color: var(--color-secondary-100);
+        color: var(--color-neutral-white);
+    }
+}
+
+.egift-top-up-container .egift-top-up-amount {
+    display: none;
+
+    p {
+        font: var(--type-details-semibold-5-font);
+        padding: 1.2rem 0;
+        border: unset;
+    }
+}
+
+.egift-top-up-container .egift-top-up-button-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.egift-top-up-terms {
+    ol {
+        padding-inline-start: 2rem;
+    }
+
+    li {
+        font: var(--type-body-2-strong-font);
+    }
+
+}
+
+@media (width >= 768px) {
+    .egift-top-up-title h1 {
+        font: var(--type-details-semibold-7-font);
+    }
+
+    main .egift-top-up-container {
+        display: flex;
+        justify-content: center;
+        gap: 3.2rem;
+        border-bottom: var(--shape-border-width-1) solid var(--color-footer-border);
+    }
+
+    main .egift-top-up-container .default-content-wrapper{
+        display: flex;
+        margin: 0;
+
+        p {
+            border: none;
+        }
+    }
+
+    main .egift-top-up-container .egift-top-up-wrapper {
+        margin: 0;
+
+        h3 {
+            font: var(--type-details-semibold-4-font);
+            margin: 0 0 1.2rem;
+        }
+
+        h4 {
+            font: var(--type-details-3-font);
+            margin: 0;
+            padding-bottom: .4rem;
+        }
+
+        p {
+            font: var(--type-details-3-font);
+        }
+
+        .egift-top-up-amount {
+            display: block;
+        }
+    }
+
+    main .egift-top-up-container .egift-top-up-amount-wrapper {
+        border: var(--shape-border-width-1) solid var(--color-footer-border);
+        border-bottom: none;
+        padding: 1.2rem;
+        margin-top: 1.2rem;
+
+    }
+
+    main .egift-top-up-container .egift-top-up-amount-options {
+        gap: .8rem;
+        justify-content: unset;
+        padding: .4rem 0 2.4rem;
+
+        input[id="customAmount"] {
+            display: none;
+        }
+
+    }
+
+    main .egift-top-up-container .egift-top-up-button-container {
+        flex-direction: row;
+        border: var(--shape-border-width-1) solid var(--color-footer-border);
+        border-top: none;
+        padding-left: 1.2rem;
+    }
+
+}

@@ -1,4 +1,23 @@
-import { createOptimizedPicture } from '../../scripts/aem.js';
+import { createOptimizedPicture as libCreateOptimizedPicture } from '../../scripts/aem.js';
+import { createOptimizedSrc } from '../../scripts/scripts.js';
+
+function createOptimizedPicture(src, alt, lazy, sizes, considerOrigin) {
+  if (considerOrigin) {
+    const optimizedPicture = libCreateOptimizedPicture(src, alt, lazy, sizes);
+    const url = new URL(src, window.location.href);
+    const { origin } = url;
+    optimizedPicture.querySelectorAll('source').forEach((source) => {
+      const path = source.getAttribute('srcset');
+      if (path.startsWith('/')) source.setAttribute('srcset', `${origin}${path}`);
+    });
+    optimizedPicture.querySelectorAll('img').forEach((source) => {
+      const path = source.getAttribute('src');
+      if (path.startsWith('/')) source.setAttribute('src', `${origin}${path}`);
+    });
+    return optimizedPicture;
+  }
+  return libCreateOptimizedPicture(src, alt, lazy, sizes);
+}
 
 export default function decorate(block) {
   /* change to ul, li */
@@ -12,7 +31,24 @@ export default function decorate(block) {
     });
     ul.append(li);
   });
-  ul.querySelectorAll('picture > img').forEach((img) => img.closest('picture').replaceWith(createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }])));
+  ul.querySelectorAll('img').forEach((img) => {
+    // if its an absolute url then ask to consider origin while forming picture src
+    if (/^https?:\/\//i.test(img.src)) {
+      img.closest('picture').replaceWith(createOptimizedPicture(createOptimizedSrc(img.src), img.alt, false, [{ width: '750' }], true));
+    } else {
+      img.closest('picture').replaceWith(createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }]));
+    }
+  });
+
+  const pictures = ul.querySelectorAll('picture');
+  pictures.forEach((pic) => {
+    const link = pic.nextElementSibling;
+    if (link && link.tagName === 'A' && link.href) {
+      link.innerHTML = pic.outerHTML;
+      pic.replaceWith(link);
+    }
+  });
+
   block.textContent = '';
   block.append(ul);
 }

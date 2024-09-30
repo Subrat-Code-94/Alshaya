@@ -1,0 +1,100 @@
+.checkout__delivery-methods-container .checkout-title {
+    text-align: center;
+    margin-bottom: var(--space-space-3x);
+}
+
+@media (width >=768px) {
+    .checkout__delivery-methods-container .checkout-title {
+        text-align: unset;
+    }
+}
+
+.checkout__delivery-information-btn {
+    background-color: var(--color-neutral-50);
+    border: 1px solid var(--color-neutral-700);
+    border-radius: var(--border-radius-2);
+    color: var(--color-text-dark);
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-start;
+    margin-top: var(--space-space-8);
+    padding: var(--space-space-3x) var(--space-space-4x);
+    width: 100%;
+}
+
+.checkout__delivery-information-btn:hover {
+    background-color: var(--color-neutral-50);
+}
+
+.checkout__shopping-block .dialog-heading {
+    border-bottom: 1px solid var(--color-neutral-60);
+    padding: var(--space-space-3x) 0;
+    position: relative;
+}
+
+.checkout__shopping-block .dialog-heading h2 {
+    display: flex;
+    font: var(--type-details-semibold-7-font);
+    justify-content: center;
+    line-height: var(--line-height-xxl);
+    margin: 0;
+}
+
+.checkout__shopping-block .dialog-heading h2 .dialog-back-icon {
+    position: absolute;
+    left: var(--space-space-4x);
+    bottom: 5px;
+    cursor: pointer;
+}
+
+.checkout__shopping-block .dialog-form {
+    padding: var(--space-space-4x) var(--space-space-4x) 0;
+}
+
+.checkout__shopping-block .dialog-loader {
+    display: flex;
+    height: 300px;
+}
+
+.checkout__shopping-block .dialog-loader .loading-spinner {
+    align-items: center;
+}
+
+.checkout__shopping-block form > .input-field-wrapper {
+    margin-bottom: var(--space-space-2x);
+}
+
+.checkout__shopping-block form .input-field-wrapper,
+.checkout__shopping-block form .input-field-wrapper input {
+    max-width: 100%;
+}
+
+.checkout__shopping-block form .input-field-wrapper.hidden {
+    display: none;
+}
+
+.checkout__shopping-block form button {
+    width: 100%;
+}
+
+.checkout__shopping-block form .input-field-wrapper .input-phone-prefix input {
+    background: var(--neutral-neutral-20);
+}
+
+@media (width >=768px) {
+    .dialog__checkout-container {
+        max-width: 96.8rem;
+    }
+}
+
+.dialog__checkout-container {
+    width: 100% !important;
+    height: 100%;
+}
+
+.dialog__header.dialog__header-checkout {
+    position: absolute;
+    z-index: 3;
+    right: 0;
+    margin-top: var(--space-space-8);
+}

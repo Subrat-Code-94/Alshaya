@@ -1,5 +1,4 @@
 mountpoints:
   /: https://drive.google.com/drive/u/0/folders/1vi3DfH5Z7xK00NBDOflxUJ-qUB72nt0o
 
-folders:
-  /: /products/router
+
